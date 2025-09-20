@@ -72,3 +72,28 @@ class Library:
                 overdue.append(book)
 
         return overdue
+
+    def search_books_by_author(self, author: str) -> List[Book]:
+        """Search for books by author name (case-insensitive)"""
+        author_lower = author.lower()
+        matching_books = []
+        
+        for book in self.books.values():
+            if author_lower in book.author.lower():
+                matching_books.append(book)
+        
+        return matching_books
+
+    def get_member_borrowed_books(self, member_id: str) -> List[Book]:
+        """Get all books currently borrowed by a member"""
+        if member_id not in self.members:
+            return []
+        
+        member = self.members[member_id]
+        borrowed_books = []
+        
+        for isbn in member.borrowed_books:
+            if isbn in self.books:
+                borrowed_books.append(self.books[isbn])
+        
+        return borrowed_books

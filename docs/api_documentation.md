@@ -52,9 +52,26 @@ Retrieves list of overdue books.
 
 **Returns:** List of Book objects past due date.
 
+##### `search_books_by_author(author: str) -> List[Book]`
+Searches for books by author name (case-insensitive).
+
+**Parameters:**
+- `author` (str): Author name to search for
+
+**Returns:** List of Book objects matching the author.
+
+##### `get_member_borrowed_books(member_id: str) -> List[Book]`
+Gets all books currently borrowed by a specific member.
+
+**Parameters:**
+- `member_id` (str): Member ID to check
+
+**Returns:** List of Book objects currently borrowed by the member.
+
 ### Configuration
 
 - Default loan period: 14 days
 - Overdue calculation: Based on current system time
 - Member capacity: Unlimited
 - Book duplicates: Not supported (unique ISBN required)
+- Search functionality: Case-insensitive author search
