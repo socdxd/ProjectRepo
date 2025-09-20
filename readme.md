@@ -1,3 +1,7 @@
+# Library Management System
+
+A comprehensive Python library management system that handles book cataloging, member management, borrowing operations, and advanced search functionality.
+
 ## Features
 
 - Book management (add, track availability)
@@ -5,6 +9,10 @@
 - Book borrowing and return system
 - Overdue book tracking
 - 14-day loan period
+- Search books by author (case-insensitive)
+- Track member's borrowed books
+- Comprehensive test coverage
+- Full API documentation
 
 ## Quick Start
 
@@ -38,6 +46,14 @@ print(f"Borrow successful: {success}")
 # Return book
 returned = library.return_book("978-0-123456-78-9")
 print(f"Return successful: {returned}")
+
+# Search books by author
+john_books = library.search_books_by_author("John Smith")
+print(f"Books by John Smith: {len(john_books)}")
+
+# Get member's borrowed books
+borrowed = library.get_member_borrowed_books("M001")
+print(f"Member has {len(borrowed)} borrowed books")
 ```
 
 ### Running Tests
